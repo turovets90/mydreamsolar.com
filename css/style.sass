@@ -1,0 +1,257 @@
+@import "jquery-ui"
+@import "fancybox"
+//@import "select2"
+//@import "bootstrap"
+@import "slick-less"
+
+
+=b_a()
+  content: ''
+  position: absolute
+
+=m_a()
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  margin: auto
+
+=flex()
+  display: flex
+  display: -webkit-flex
+
+=j-center()
+  justify-content: center
+  -webkit-justify-content: center
+
+=j-beetween()
+  justify-content: space-between
+  -webkit-justify-content: space-between
+
+=j-space-around()
+  justify-content: space-around
+  -webkit-justify-content: space-around
+
+=j-end()
+  justify-content: flex-end
+  -webkit-justify-content: flex-end
+
+=j-start()
+  justify-content: flex-start
+  -webkit-justify-content: flex-start
+
+=ai-center()
+  align-items: center
+  -webkit-align-items: center
+
+=ai-start()
+  align-items: flex-start
+  -webkit-align-items: flex-start
+
+=ai-end()
+  align-items: flex-end
+  -webkit-align-items: flex-end
+
+=as-center()
+  align-self: center
+  -webkit-align-self: center
+
+=as-end()
+  align-self: flex-end
+  -webkit-align-self: flex-end
+
+=as-start()
+  align-self: flex-start
+  -webkit-align-self: flex-start
+
+=wrap()
+  flex-wrap: wrap
+  -webkit-flex-wrap: wrap
+
+=col()
+  flex-direction: column
+  -webkit-flex-direction: column
+
+=border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+  border-radius: $radius
+
+=box-shadow($box-shadow)
+  -webkit-box-shadow: $box-shadow
+  -moz-box-shadow: $box-shadow
+  box-shadow: $box-shadow
+
+=transform($transform)
+  transform: $transform
+  -webkit-transform: $transform
+  -moz-transform: $transform
+  -ms-transform: $transform
+  -o-transform: $transform
+
+=transition($transition_default)
+  transition: $transition_default
+  -webkit-transition: $transition_default
+  -moz-transition: $transition_default
+  -o-transition: $transition_default
+$transition_default: .3s linear
+
+
+
+//@font-face
+  font-family: 'Rubik'
+  src: url('../fonts/Rubik-BlackItalic.eot')
+  src: local('Rubik Black Italic'), local('Rubik-BlackItalic'), url('../fonts/Rubik-BlackItalic.eot?#iefix') format('embedded-opentype'), url('../fonts/Rubik-BlackItalic.woff') format('woff'), url('../fonts/Rubik-BlackItalic.ttf') format('truetype')
+  font-weight: 900
+  font-style: italic
+
+
+//@font-face
+  font-family: 'Rubik'
+  src: url('../fonts/Rubik-BoldItalic.eot')
+  src: local('Rubik Bold Italic'), local('Rubik-BoldItalic'), url('../fonts/Rubik-BoldItalic.eot?#iefix') format('embedded-opentype'), url('../fonts/Rubik-BoldItalic.woff') format('woff'), url('../fonts/Rubik-BoldItalic.ttf') format('truetype')
+  font-weight: bold
+  font-style: italic
+
+
+@font-face
+  font-family: 'Rubik Light'
+  src: url('../fonts/Rubik-Light.eot')
+  src: local('Rubik Light'), local('Rubik-Light'),  url('../fonts/Rubik-Light.eot?#iefix') format('embedded-opentype'), url('../fonts/Rubik-Light.woff') format('woff'), url('../fonts/Rubik-Light.ttf') format('truetype')
+  font-weight: 300
+  font-style: normal
+$f_300: 'Rubik Light'
+
+@font-face
+  font-family: 'Rubik Medium'
+  src: url('../fonts/Rubik-Medium.eot')
+  src: local('Rubik Medium'), local('Rubik-Medium'), url('../fonts/Rubik-Medium.eot?#iefix') format('embedded-opentype'), url('../fonts/Rubik-Medium.woff') format('woff'), url('../fonts/Rubik-Medium.ttf') format('truetype')
+  font-weight: 500
+  font-style: normal
+$f_500: 'Rubik Medium'
+
+//@font-face
+  font-family: 'Rubik'
+  src: url('../fonts/Rubik-Italic.eot')
+  src: local('Rubik Italic'), local('Rubik-Italic'), url('../fonts/Rubik-Italic.eot?#iefix') format('embedded-opentype'), url('../fonts/Rubik-Italic.woff') format('woff'), url('../fonts/Rubik-Italic.ttf') format('truetype')
+  font-weight: normal
+  font-style: italic
+
+
+@font-face
+  font-family: 'Rubik Bold'
+  src: url('../fonts/Rubik-Bold.eot')
+  src: local('Rubik Bold'), local('Rubik-Bold'), url('../fonts/Rubik-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/Rubik-Bold.woff') format('woff'), url('../fonts/Rubik-Bold.ttf') format('truetype')
+  font-weight: bold
+  font-style: normal
+$f_700: 'Rubik Bold'
+
+//@font-face
+  font-family: 'Rubik'
+  src: url('../fonts/Rubik-LightItalic.eot')
+  src: local('Rubik Light Italic'), local('Rubik-LightItalic'), url('../fonts/Rubik-LightItalic.eot?#iefix') format('embedded-opentype'), url('../fonts/Rubik-LightItalic.woff') format('woff'), url('../fonts/Rubik-LightItalic.ttf') format('truetype')
+  font-weight: 300
+  font-style: italic
+
+
+@font-face
+  font-family: 'Rubik'
+  src: url('../fonts/Rubik-Regular.eot')
+  src: local('Rubik'), local('Rubik-Regular'), url('../fonts/Rubik-Regular.eot?#iefix') format('embedded-opentype'),  url('../fonts/Rubik-Regular.woff') format('woff'), url('../fonts/Rubik-Regular.ttf') format('truetype')
+  font-weight: normal
+  font-style: normal
+$f_400: 'Rubik'
+
+//@font-face
+  font-family: 'Rubik'
+  src: url('../fonts/Rubik-MediumItalic.eot')
+  src: local('Rubik Medium Italic'), local('Rubik-MediumItalic'), url('../fonts/Rubik-MediumItalic.eot?#iefix') format('embedded-opentype'), url('../fonts/Rubik-MediumItalic.woff') format('woff'), url('../fonts/Rubik-MediumItalic.ttf') format('truetype')
+  font-weight: 500
+  font-style: italic
+
+
+//@font-face
+  font-family: 'Rubik Mono One'
+  src: url('../fonts/RubikMonoOne-Regular.eot')
+  src: local('Rubik Mono One Regular'), local('RubikMonoOne-Regular'),  url('../fonts/RubikMonoOne-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/RubikMonoOne-Regular.woff') format('woff'),  url('../fonts/RubikMonoOne-Regular.ttf') format('truetype')
+  font-weight: normal
+  font-style: normal
+
+
+@font-face
+  font-family: 'Rubik Black'
+  src: url('../fonts/Rubik-Black.eot')
+  src: local('Rubik Black'), local('Rubik-Black'), url('../fonts/Rubik-Black.eot?#iefix') format('embedded-opentype'), url('../fonts/Rubik-Black.woff') format('woff'), url('../fonts/Rubik-Black.ttf') format('truetype')
+  font-weight: 900
+  font-style: normal
+
+$f_900: 'Rubik Black'
+
+
+
+$blue: #0097EB
+$yellow: #FFCC3D
+$grey: #F4F4F4
+$black: #333
+/*********************************/
+
+
+
+a, button
+  +transition($transition_default)
+
+a
+  text-decoration: none
+
+  &:hover, &:focus
+    text-decoration: underline
+
+button, input, .form-control
+  outline: none
+
+.form-control
+  &:hover, &:focus
+    box-shadow: none
+    outline: none
+
+
+button
+  cursor: pointer
+  &:hover, &:focus
+    +box-shadow(none)
+    outline: none
+
+
+img, video
+  max-width: 100%
+*
+  outline: none
+
+*, *::before, *::after
+  box-sizing: border-box
+
+ul
+  padding: 0
+  margin: 0
+  li
+    list-style: none
+
+.container
+  width: 100%
+  max-width: 1200px
+  padding-right: 15px
+  padding-left: 15px
+  margin-right: auto
+  margin-left: auto
+
+
+body
+  padding: 0
+  margin: 0
+  background: #fff
+  position: relative
+  font-family: $f_400
+  font-size: 15px
+  line-height: 22px
+  color: #333
+

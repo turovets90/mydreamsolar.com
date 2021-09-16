@@ -1,0 +1,45 @@
+-var m1=['Светодиодная лента','Блоки питания','Алюминиевый профиль','Управление освещением','Гибкий неон','Светильники','Модули и линейки','Светодиодные прожектора'];
+-var m2=['Оплата','Доставка','Самовывоз','Гарантии','Возврат'];
+-var m3=['Статьи','О компании','Написать руководителю'];
+-var mm=['Каталог','Оплата','Доставка','Самовывоз','Гарантии','Возврат','Статьи','О компании','Написать руководителю'];
+footer
+    .container
+        .f_row
+            .col_left
+                .column
+                    .f_title Каталог
+                    ul.f_menu
+                        for m1_item, index in m1
+                            li
+                                a(href="#")=m1_item
+                .column
+                    .f_title Наш сервис
+                    ul.f_menu
+                        for m2_item, index in m2
+                            li
+                                a(href="#")=m2_item
+                .column
+                    .f_title Покупателям
+                    ul.f_menu
+                        for m3_item, index in m3
+                            li
+                                a(href="#")=m3_item
+
+            .col_right
+                .fm_menu
+                    .f_title Меню
+                    ul.f_menu
+                        for fm_menu_item, index in mm
+                            li
+                                a(href="#")=fm_menu_item
+                .f_title Контакты
+                ul.f_contacts
+                    li
+                        a(href="tel:+375 33 333 33 33") +375 33 333 33 33
+                    li
+                        a(href="tel:+375 33 333 33 33") +375 33 333 33 33
+                    li Пр-т Победителей, 119 <a href="mailto:zakaz@esvet.by">zakaz@esvet.by</a>
+                    li Пн - Пт: 9.00 - 18.00 <br>Сб - Вск: 10.00 - 14.00
+
+
+.copyright Сайт разработан компанией <a href="#"> Seologic</a>
