@@ -19,6 +19,13 @@ $(document).ready(function(){
     });
 
 
+    $(window).resize(function(){
+        var header_height = $('header').outerHeight();
+        $('header').next().css({'margin-top': header_height+'px'});
+    });
+    $(window).resize();
+
+
     $('.hamburger').click(function () {
         $('.main_menu').toggleClass('open');
         $('html').toggleClass('page-noscroll');
@@ -335,11 +342,7 @@ $(document).ready(function(){
     );
 
 
-    $(window).resize(function(){
-        var header_height = $('.b_header').outerHeight();
-        $('.c_menu .bg_dark').css({'margin-top': header_height+'px'});
-    });
-    $(window).resize();
+
 
  */
 

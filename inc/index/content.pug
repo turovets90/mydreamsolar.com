@@ -1,91 +1,97 @@
--var m_cat=['','Гибкий неон','','Прожекторы','Алюминиевый профиль','Гибкий неон','Управление','Модуля','Блоки питания'];
-
 main
-    .container
-        .m_categories
-            .d_flex.float_left
-                a.item.large(style="background-image:url(img/m_0.png)" href="#")
-                    span Светодиодные ленты
-                a.item.small(style="background-image:url(img/m_2.png)" href="3")
-                    span Светильники
-                a.item.small(style="background-image:url(img/m_3.png)" href="#")
-                    span Прожекторы
-                a.item.medium(style="background-image:url(img/m_4.png)" href="#")
-                    span Алюминиевый профиль
-            .d_flex.float_right
-                a.item.large(style="background-image:url(img/m_7.png)" href="#")
-                    span Блоки питания
-                a.item.medium(style="background-image:url(img/m_1.png)" href="#")
-                    span Гибкий неон
-                a.item.small(style="background-image:url(img/m_5.png)" href="#")
-                    span Управление
-                a.item.small(style="background-image:url(img/m_6.png)" href="#")
-                    span Модуля
+    .first_screen
+        .row
+            .col_img(style="background-image:url(img/img.png)")
+            .col_text
+                div.text
+                    .title.blue Customized solar plan for your home
+                    .desc Get the energy to evolve, all right here.
+                    .btn_group
+                        a.btn_default(href="#") See if you qualify
+                        a.btn_default.b_blue(href="#") Learn more
+
+    -var power=['Production, in the bag for 25 years','Zero up-front cost. Really!','Faster, friendlier service','More option, more opportunity']
+    -var power_desc=['No charlatan salesmen or nefarious negotiation gimmicks here. Just honest and informed solar energy contractors who foster a passion for making clean energy more accessible.','Financing the entire cost of your system is really almost too easy with our partners. Qualifying finance-to-own or PPA customers won’t pay a single cent until activation day. Cool, right?','No charlatan salesmen or nefarious negotiation gimmicks here. Just honest and informed solar energy contractors who foster a passion for making clean energy more accessible.','When it comes to design options, we pull out all the stops. Our mission is to design your high-efficiency system to deliver the most value and the best aesthetics.']
+    .sm_container.power
+        .s_title Your power,<br> our perspective.
+        .sub_title We are a locally owned & operated solar company. Not only do we live & breathe solar, but we are also more knowledgeable of the state incentives than many of the larger, nationally recognized companies
+
+        .row.power_list
+            for p_item, index in power
+                .column
+                    .power_item
+                        picture
+                            img.icon(src="img/p_"+index+".svg")
+                        .power_item_title=p_item
+                        .power_item_desc=power_desc[index]
+    -var plans=['Solar','Solar + Roof','Solar Loan','Solar Lease'];
+    .container.plans
+        .s_title Our Plans & Services
+        .sub_title Brightbox saves you money by seamlessly optimizing when a home uses electricity generates from solar, stored in the battery, or from the grid. Purchase or lease Brightbox from us today!
+
+        .plans_list
+            -for(var p=0;p<=3;p++)
+                .row.plan_item
+                    .column
+                        .plan_img(style="background-image:url(img/plan_"+p+".png)")
+
+                    .column
+                        .bg_grey
+                            div.text
+                                .h2=plans[p]
+                                .desc No charlatan salesmen or nefarious negotiation gimmicks here. Just honest and informed solar energy contractors who foster a passion for making clean energy more accessible.
+                                a.btn_default(href="#") Learn more
 
 
-        .m_products
-            .box_title
-                .title Хиты продаж
-            .products_list.m_products_slider
-                -for(var p=1;p<=6;p++)
-                    .product_item
-                       .product_item_content
-                            .c_left
-                               .img_thumbnail
-                                   .label Хит
-                                   a(href="#")
-                                       img(src="img/product_item.png")
-                            .c_center
-                                .articul Артикул: 12389234
-                                a.product_name(href="#") Блок питания Venom Негерметичный 12V 15Вт
-                                .availability
-                                    if p === 3 || p === 5
-                                        span.red Под заказ
-                                    else
-                                        span.green В наличии
-                                .price 148 BYN/шт
-                            .c_right
-                                .amount
-                                    span.down -
-                                    input(type="text" value="1")
-                                    span.up +
-                                a.btn_default(href="#") В корзину
 
-        .m_articles
-            .box_title
-                .title Статьи
-                a.show_all(href="#") Все статьи
-            .articles_list.items3_slider
-                -for(var a=1;a<=5;a++)
-                    .item.article_item
-                        .article_item_content
-                            a.img_thumbnail(href="#" style="background-image:url(img/Screenshot_1.png)")
-                            a.article_name(href="#") Гибкий светодиодный неон. Как и где его можно использовать
-                            .excerpt Специалисты компании «Neo-Neon» выпустили на рынок экспериментальную новинку под названием «LED neon flex» ...
+    .sm_container.seo_text
+        .s_title About company
+        .desc
+            p Solar is a national powerhouse. Alliance Solar is part of this solar movement. Unlike other solar companies, our company believes that when homeowners “go solar,” they are creating elevated financial freedom and power for themselves, their family, and other locals when energy is netted back to the grid.
+
+            p We want to be the team you trust to make the switch to solar and decrease your carbon footprint. Our name, Alliance, is defined as a coming together or association formed for mutual benefit with set joint goals. When you work with our solar company, this is exactly what you can expect. You’ll work with knowledgeable professionals who work in collaboration with you versus some other companies out there who try to squeeze you for your money. Our name is trusted throughout the United States, and we are one of the fastest-growing solar companies. Contact us today to learn more about us and how we can help you go solar, today!
 
 
-        .m_video
-            .box_title
-                .title Видеоблог
-                a.show_all(href="#") Все видео
-            .video_list.video_slider
-                -for (var a1 = 1; a1 <= 5; a1++)
-                    .item.video_item
-                        <iframe  src="https://www.youtube.com/embed/89PiomkwHxg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    .feedback_box(style="background-image:url(img/blue-skies.png)")
+
+        .container
+            .row
+                .column
+                    .text
+                        .h2 See<br> if you qualify
+                        .sub_title Simply fill out the form and we will get back to you as soon as possible.
+                .column
+                    form.feedback_form
+                        .field
+                            input.form_control(type="text" placeholder="First name*")
+                        .field
+                            input.form_control(type="text" placeholder="Last Name")
+                        .field
+                            input.form_control(type="text" placeholder="Email*")
+                        .field
+                            input.form_control(type="text" placeholder="Zip Code")
+                        .field.mb_30
+                            input.form_control(type="text" placeholder="Phone")
+                        .field.mb_30
+                            .custom_checkbox
+                                input(type="radio" id="checkbox1" name="radio")
+                                label(for="checkbox1") I own my home
+                            .custom_checkbox
+                                input(type="radio" id="checkbox2" name="radio")
+                                label(for="checkbox2") I was referred DreamSolar a friend or family member
+                        .field
+                            button.btn_default(type="submit") See if you qualify
 
 
-        .m_seotext
-            .box_title
-                .title Светодиодное освещение
-            .desc
-                p С каждым днём всё больше светодиодная лента представляет собой гибкую печатную плату, которая усеяна светодиодами и резисторами. Она предназначается для использования. Светодиодное освещение — одно из перспективных направлений технологий искусственного освещения[1], основанное на использовании светодиодов в качестве источника света.
-                p Развитие светодиодного освещения непосредственно связано с достижениями в технологии белых светодиодов. Разработаны так называемые сверхъяркие светодиоды, специально предназначенные для искусственного освещения. В сравнении с обычными лампами накаливания, а также люминесцентными лампами светодиодные источники света обладают многими преимуществами.
-                .more
-                    p При оптимальной схемотехнике источников питания, применении качественных компонентов и обеспечении надлежащего теплового режима, срок службы светодиодных систем освещения при сохранении приемлемых для общего освещения показателей может достигнуть 36-72 тысяч часов, что в среднем в 50 раз больше по сравнению с номинальным сроком службы ламп накаливания общего назначения и в 4-16 раз больше, чем у большинства люминесцентных ламп.
-                    p Производители светодиодов из-за постоянного обновления и совершенствования продукции не имеют возможности проводить тестирование в реальном времени и указывают прогнозируемый срок службы, используя специальные методики, такие как TM-21 и IESNA LM-80. Большой срок службы в некоторых применениях играет решающую роль. Так, экономия на обслуживании и замене ламп в уличных светильниках зачастую превышает экономию на электроэнергии.
-                    p Высокие требования к качеству теплоотвода, поскольку температура оказывает решающее влияние на надежность. Мощные осветительные светодиоды требуют наличия внешнего радиатора для охлаждения, потому что имеют неблагоприятное соотношение своих размеров к выделяемой тепловой мощности и не могут без специального теплоотвода рассеять столько тепла, сколько выделяют. Так, для рассеивания 5 Вт тепловой мощности, выделяемой полупроводниковым прибором с возможностью работы при температуре окружающей среды до +40 °C, потребуется радиатор площадью 100 см2. Необходимость использования радиатора удорожает готовое изделие и затрудняет конструирование светодиодных ламп свыше 15 Вт, совместимых с типоразмером цоколя и габаритами ламп накаливания общего назначения.
-                p.read_more
-                    span Читать подробнее
+
+
+
+
+
+
+
+
+
 
 
 

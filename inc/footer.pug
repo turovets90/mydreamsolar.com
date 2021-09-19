@@ -1,45 +1,27 @@
--var m1=['Светодиодная лента','Блоки питания','Алюминиевый профиль','Управление освещением','Гибкий неон','Светильники','Модули и линейки','Светодиодные прожектора'];
--var m2=['Оплата','Доставка','Самовывоз','Гарантии','Возврат'];
--var m3=['Статьи','О компании','Написать руководителю'];
--var mm=['Каталог','Оплата','Доставка','Самовывоз','Гарантии','Возврат','Статьи','О компании','Написать руководителю'];
+-var f_menu=['Home','Plans & Services','Why DreamSolar','Solar Storage','Why Solar'];
+
+
+
+
 footer
     .container
         .f_row
-            .col_left
-                .column
-                    .f_title Каталог
-                    ul.f_menu
-                        for m1_item, index in m1
-                            li
-                                a(href="#")=m1_item
-                .column
-                    .f_title Наш сервис
-                    ul.f_menu
-                        for m2_item, index in m2
-                            li
-                                a(href="#")=m2_item
-                .column
-                    .f_title Покупателям
-                    ul.f_menu
-                        for m3_item, index in m3
-                            li
-                                a(href="#")=m3_item
+            .f_left
+                .logo
+                    a(href="#")
+                        span.blue mydream
+                        span.yellow solar
 
-            .col_right
-                .fm_menu
-                    .f_title Меню
-                    ul.f_menu
-                        for fm_menu_item, index in mm
-                            li
-                                a(href="#")=fm_menu_item
-                .f_title Контакты
-                ul.f_contacts
+                ul.f_menu
+                    for f_item,  index in f_menu
+                        li
+                            a(href="#")=f_item
+
+            ul.social_menu
+                -for(var s=1;s<=5;s++)
                     li
-                        a(href="tel:+375 33 333 33 33") +375 33 333 33 33
-                    li
-                        a(href="tel:+375 33 333 33 33") +375 33 333 33 33
-                    li Пр-т Победителей, 119 <a href="mailto:zakaz@esvet.by">zakaz@esvet.by</a>
-                    li Пн - Пт: 9.00 - 18.00 <br>Сб - Вск: 10.00 - 14.00
+                        a(href="#")
+                            img.icon(src="img/s_"+s+".svg")
 
-
-.copyright Сайт разработан компанией <a href="#"> Seologic</a>
+        .copyright
+                p ©2021 Mydreamsolar. All rights reserved.

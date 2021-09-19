@@ -1,2 +1,37 @@
 -var main_menu=['Plans & Services','Why DreamSolar','Solar Storage','Why Solar'];
+-var sub_menu=['Solar','Solar + Roof','Solar Loan','Solar Lease'];
+
+header
+    .container
+        .h_row
+            .logo
+                a(href="#")
+                    span.blue mydream
+                    span.yellow solar
+
+            .main_menu
+                .mm_close
+                ul.nav
+                    for m_item, index in main_menu
+                        li
+                            a(href="#")=m_item
+                            .arrow
+                            .sub_menu
+                                ul.nav
+                                    for s_item, index in sub_menu
+                                        li
+                                            a(href="#" style="background-image:url(img/s_"+index+".png)")
+                                                span=s_item
+            .h_right
+                .phone
+                    a.phone_link(href="tel:(833) 324-5886") (833) 324-5886
+
+                .mm_btn
+                    button.hamburger
+                        span
+                        span
+                        span
+
+
+
 

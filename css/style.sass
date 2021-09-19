@@ -1,9 +1,3 @@
-@import "jquery-ui"
-@import "fancybox"
-//@import "select2"
-//@import "bootstrap"
-@import "slick-less"
-
 
 =b_a()
   content: ''
@@ -189,6 +183,10 @@ $f_900: 'Rubik Black'
 
 
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap')
+
+$roboto: 'Roboto', sans-serif
+
 $blue: #0097EB
 $yellow: #FFCC3D
 $grey: #F4F4F4
@@ -202,7 +200,7 @@ a, button
 
 a
   text-decoration: none
-
+  color: $blue
   &:hover, &:focus
     text-decoration: underline
 
@@ -220,6 +218,26 @@ button
   &:hover, &:focus
     +box-shadow(none)
     outline: none
+
+
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, .s_title, .title
+  font-family: $f_700
+
+
+h1, .h1, h2, .h2, .s_title
+  font-size: 50px
+  line-height: 56px
+  color: $black
+  @media (max-width: 1200px)
+    font-size: 45px
+    line-height: 1.2
+  @media (max-width: 991px)
+    font-size: 40px
+  @media (max-width: 767px)
+    font-size: 35px
+  @media (max-width: 575px)
+    font-size: 30px
 
 
 img, video
@@ -243,7 +261,13 @@ ul
   padding-left: 15px
   margin-right: auto
   margin-left: auto
-
+.sm_container
+  width: 100%
+  max-width: 798px
+  padding-right: 15px
+  padding-left: 15px
+  margin-right: auto
+  margin-left: auto
 
 body
   padding: 0
@@ -255,3 +279,763 @@ body
   line-height: 22px
   color: #333
 
+.blue
+  color: $blue
+.yellow
+  color: $yellow
+
+
+
+header
+  background: #FFFFFF
+  +box-shadow(0 4px 8px rgba(0, 0, 0, 0.1))
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  z-index: 99
+  @media (max-width: 991px)
+    padding: 10px 0
+
+  .container
+    @media (max-width: 575px)
+      padding-right: 8px
+      padding-left: 8px
+
+
+.h_row
+  +flex
+  +ai-center
+  +wrap
+  +j-beetween
+
+
+.logo
+  a
+    +flex
+    +ai-center
+    text-transform: uppercase
+    text-decoration: none
+    font-family: $f_500
+    letter-spacing: 0.05em
+    font-size: 20px
+    @media (max-width: 575px)
+      font-size: 18px
+    @media (max-width: 375px)
+      font-size: 16px
+      font-family: $f_400
+
+
+
+
+
+.main_menu
+  @media (max-width: 991px)
+    position: fixed
+    width: 70%
+    height: 100%
+    top: 0
+    right: 0
+    background: $blue
+    z-index: 9999
+    padding: 50px 0
+    overflow-x: hidden
+    overflow-y: auto
+    +transition($transition_default)
+    +transform(translateX(100%))
+    opacity: 0
+    @media (max-width: 767px)
+      width: 80%
+    @media (max-width: 575px)
+      width: 85%
+    &.open
+      +transform(translateX(0))
+      opacity: 1
+
+
+  .mm_close
+    position: absolute
+    left: 0
+    top: 0
+    width: 30px
+    height: 30px
+    background: #fff
+    &:before, &:after
+      +b_a
+      width: 25px
+      height: 1px
+      background: $black
+      +m_a
+    &:before
+      +transform(rotate(45deg))
+    &:after
+      +transform(rotate(-45deg))
+
+    @media (min-width: 992px)
+      display: none
+  ul.nav
+    +flex
+    +ai-center
+    +wrap
+    .sub_menu
+      display: none
+      @media (min-width: 992px)
+        position: absolute
+        top: 100%
+        left: 0
+        background: #fff
+        z-index: 2
+        width: 100%
+        border-top: 1px solid $blue
+        +box-shadow(0 4px 8px rgba(0, 0, 0, 0.1))
+        padding: 5px 0
+
+      ul.nav
+        +flex
+        +ai-center
+        +j-center
+        li
+          a
+            +flex
+            +ai-center
+            +j-center
+            height: 100px
+            width: 170px
+            position: relative
+            color: #fff
+            font-size: 20px
+            font-family: $f_700
+            background-size: cover
+            background-position: center
+            span
+              position: relative
+
+            &:before
+              +b_a
+              width: 100%
+              height: 100%
+              background: rgba(0, 0, 0, 0.3)
+              top: 0
+              left: 0
+
+    > li
+      padding: 14px
+      @media (max-width: 991px)
+        width: 100%
+        padding: 5px 14px
+        position: relative
+        &.act
+          .arrow
+            +transform(rotate(180deg))
+
+      @media (min-width: 992px)
+        +flex
+        +j-center
+        +ai-center
+        &:hover
+          > a
+            color: $blue
+          .sub_menu
+            display: block
+          .arrow
+            +transform(rotate(180deg))
+            &:before
+              background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='8' height='5' viewBox='0 0 8 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M7.52657 0.206682C7.46489 0.144879 7.39164 0.0958475 7.31099 0.0623932C7.23034 0.0289389 7.14388 0.0117187 7.05657 0.0117187C6.96926 0.0117187 6.8828 0.0289388 6.80215 0.0623931C6.72151 0.0958474 6.64825 0.144879 6.58657 0.206681L3.9999 2.79335L1.41324 0.206681C1.28859 0.0820295 1.11952 0.0120007 0.943238 0.0120007C0.766954 0.0120007 0.597889 0.0820295 0.473237 0.206681C0.348586 0.331333 0.278558 0.500397 0.278558 0.676681C0.278558 0.852965 0.348586 1.02203 0.473237 1.14668L3.53324 4.20668C3.59491 4.26848 3.66817 4.31751 3.74882 4.35097C3.82947 4.38442 3.91593 4.40164 4.00324 4.40164C4.09055 4.40164 4.177 4.38442 4.25765 4.35097C4.3383 4.31751 4.41156 4.26848 4.47324 4.20668L7.53324 1.14668C7.78657 0.893348 7.78657 0.466681 7.52657 0.206682Z' fill='%230097EB'/%3e%3c/svg%3e ")
+
+
+      .arrow
+        display: inline-block
+        width: 8px
+        height: 5px
+        position: relative
+        margin-left: 3px
+        @media (max-width: 991px)
+          width: 30px
+          height: 30px
+          position: absolute
+          right: 0
+          top: 0
+        &:before
+          +b_a
+          +m_a
+          width: 8px
+          height: 5px
+          background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='8' height='5' viewBox='0 0 8 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M7.52657 0.206682C7.46489 0.144879 7.39164 0.0958475 7.31099 0.0623932C7.23034 0.0289389 7.14388 0.0117187 7.05657 0.0117187C6.96926 0.0117187 6.8828 0.0289388 6.80215 0.0623931C6.72151 0.0958474 6.64825 0.144879 6.58657 0.206681L3.9999 2.79335L1.41324 0.206681C1.28859 0.0820295 1.11952 0.0120007 0.943238 0.0120007C0.766954 0.0120007 0.597889 0.0820295 0.473237 0.206681C0.348586 0.331333 0.278558 0.500397 0.278558 0.676681C0.278558 0.852965 0.348586 1.02203 0.473237 1.14668L3.53324 4.20668C3.59491 4.26848 3.66817 4.31751 3.74882 4.35097C3.82947 4.38442 3.91593 4.40164 4.00324 4.40164C4.09055 4.40164 4.177 4.38442 4.25765 4.35097C4.3383 4.31751 4.41156 4.26848 4.47324 4.20668L7.53324 1.14668C7.78657 0.893348 7.78657 0.466681 7.52657 0.206682Z' fill='%23333333'/%3e%3c/svg%3e ")
+          @media (max-width: 991px)
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='8' height='5' viewBox='0 0 8 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M7.52657 0.206682C7.46489 0.144879 7.39164 0.0958475 7.31099 0.0623932C7.23034 0.0289389 7.14388 0.0117187 7.05657 0.0117187C6.96926 0.0117187 6.8828 0.0289388 6.80215 0.0623931C6.72151 0.0958474 6.64825 0.144879 6.58657 0.206681L3.9999 2.79335L1.41324 0.206681C1.28859 0.0820295 1.11952 0.0120007 0.943238 0.0120007C0.766954 0.0120007 0.597889 0.0820295 0.473237 0.206681C0.348586 0.331333 0.278558 0.500397 0.278558 0.676681C0.278558 0.852965 0.348586 1.02203 0.473237 1.14668L3.53324 4.20668C3.59491 4.26848 3.66817 4.31751 3.74882 4.35097C3.82947 4.38442 3.91593 4.40164 4.00324 4.40164C4.09055 4.40164 4.177 4.38442 4.25765 4.35097C4.3383 4.31751 4.41156 4.26848 4.47324 4.20668L7.53324 1.14668C7.78657 0.893348 7.78657 0.466681 7.52657 0.206682Z' fill='%23fff'/%3e%3c/svg%3e ")
+
+      > a
+        color: $black
+        font-size: 14px
+        text-decoration: none
+        @media (max-width: 991px)
+          color: #fff
+
+
+
+
+.phone
+  .phone_link
+    display: inline-block
+    position: relative
+    color: $black
+    font-size: 14px
+    padding-left: 25px
+    @media (max-width: 575px)
+      font-size: 12px
+      padding-left: 20px
+    &:before
+      +b_a
+      left: 0
+      top: 0
+      bottom: 0
+      margin: auto
+      width: 16px
+      height: 16px
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.22891 9.229C7.64591 10.811 5.81191 12.325 5.08691 11.6C4.04991 10.563 3.40991 9.659 1.12191 11.498C-1.16509 13.336 0.591906 14.562 1.59691 15.566C2.75691 16.726 7.08091 15.628 11.3549 11.355C15.6279 7.081 16.7229 2.757 15.5619 1.597C14.5569 0.591002 13.3369 -1.165 11.4989 1.122C9.65991 3.409 10.5629 4.049 11.6019 5.087C12.3239 5.812 10.8109 7.646 9.22891 9.229Z' fill='%23FFCC3D'/%3e%3c/svg%3e ")
+
+    &:hover, &:focus
+      text-decoration: none
+      color: $blue
+      &:before
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.22891 9.229C7.64591 10.811 5.81191 12.325 5.08691 11.6C4.04991 10.563 3.40991 9.659 1.12191 11.498C-1.16509 13.336 0.591906 14.562 1.59691 15.566C2.75691 16.726 7.08091 15.628 11.3549 11.355C15.6279 7.081 16.7229 2.757 15.5619 1.597C14.5569 0.591002 13.3369 -1.165 11.4989 1.122C9.65991 3.409 10.5629 4.049 11.6019 5.087C12.3239 5.812 10.8109 7.646 9.22891 9.229Z' fill='%230097EB'/%3e%3c/svg%3e ")
+
+
+
+.h_right
+  +flex
+  +ai-center
+.mm_btn
+  width: 25px
+  height: 20px
+  margin-left: 10px
+  +flex
+  @media (max-width: 575px)
+    width: 20px
+    height: 16px
+  .hamburger
+    width: 25px
+    height: 20px
+    background: none
+    border: 0
+    padding: 0
+    position: relative
+    @media (max-width: 575px)
+      width: 20px
+      height: 16px
+    span
+      position: absolute
+      width: 100%
+      height: 2px
+      background: $blue
+      left: 0
+      &:nth-child(1)
+        top: 0
+
+      &:nth-child(2)
+        top: 0
+        bottom: 0
+        margin: auto
+      &:nth-child(3)
+        bottom: 0
+
+
+  @media (min-width: 992px)
+    display: none
+
+
+main
+  padding-top: 22px
+
+
+.first_screen
+  .row
+    +flex
+    +wrap
+    .col_img
+      width: 58%
+      height: 625px
+      background-size: cover
+      background-position: center
+      @media (max-width: 991px)
+        width: 100%
+        height: 400px
+      @media (max-width: 767px)
+        height: 300px
+      @media (max-width: 575px)
+        height: 250px
+
+    .col_text
+      width: 42%
+      background: $grey
+      padding: 30px 100px
+      +flex
+      +ai-center
+      +j-center
+      @media (max-width: 1400px)
+        padding: 30px 60px
+      @media (max-width: 1200px)
+        padding:  30px 50px
+      @media (max-width: 991px)
+        padding: 30px
+        width: 100%
+        text-align: center
+
+      .title, .h1, h1
+        font-family: $f_700
+        font-size: 46px
+        line-height: 54px
+        margin-bottom: 22px
+        @media (max-width: 1200px)
+          font-size: 35px
+          line-height: 1.2
+        @media (max-width: 991px)
+          font-size: 30px
+        @media (max-width: 767px)
+          font-size: 28px
+        @media (max-width: 575px)
+          font-size: 25px
+      .desc
+        color: $black
+        font-size: 18px
+        line-height: 21px
+        margin-bottom: 85px
+        @media (max-width: 1200px)
+          font-size: 16px
+          line-height: 1.2
+          margin-bottom: 50px
+        @media (max-width: 991px)
+          margin-bottom: 30px
+      .btn_group
+        +flex
+        +ai-center
+        @media (max-width: 991px)
+          +j-center
+        @media (max-width: 575px)
+          +wrap
+        .btn_default
+          max-width: 170px
+          @media (max-width: 575px)
+            max-width: 100%
+            margin-bottom: 10px
+            &:last-child
+              margin-bottom: 0
+          &:first-child
+            margin-right: 28px
+            @media (max-width: 575px)
+              margin-right: 0
+
+
+
+.btn_default
+  +flex
+  +ai-center
+  +j-center
+  width: 100%
+  max-width: 213px
+  height: 52px
+  text-decoration: none
+  background: $yellow
+  color: $black
+  font-size: 16px
+  font-family: $roboto
+  border: 2px solid $yellow
+  font-weight: bold
+  +box-shadow(2px 2px 4px rgba(242, 188, 34, 0.35))
+  +border-radius(30px)
+  @media (max-width: 767px)
+    height: 45px
+    font-size: 14px
+  &:hover, &:focus
+    text-decoration: none
+    background: $blue
+    color: #fff
+    border: 2px solid $blue
+    +box-shadow(2px 2px 4px rgba(0, 151, 235, 0.35))
+
+  &.b_blue
+    border: 2px solid $blue
+    background: $grey
+    color: $blue
+    +box-shadow(none)
+    &:hover, &:focus
+      background: $blue
+      color: #fff
+
+
+
+
+
+.s_title
+  text-align: center
+  margin-bottom: 10px
+  padding-top: 60px
+  @media (max-width: 1200px)
+    padding-top: 50px
+  @media (max-width: 991px)
+    padding-top: 40px
+  @media (max-width: 767px)
+    padding-top: 30px
+
+.sub_title
+  font-size: 15px
+  line-height: 22px
+  color: $black
+  text-align: center
+  margin-bottom: 25px
+
+
+
+.row
+  +flex
+  +wrap
+  margin-right: -15px
+  margin-left: -15px
+
+.power_list
+  .column
+    width: 50%
+    padding: 0 15px
+    margin-bottom: 30px
+    @media (max-width: 767px)
+      width: 100%
+    &:nth-child(1), &:nth-child(4)
+      .power_item
+        background: $yellow
+        +box-shadow(4px 4px 4px rgba(255, 223, 133, 0.35))
+        *
+          color: $black
+    &:nth-child(2), &:nth-child(3)
+      .power_item
+        background: $blue
+        +box-shadow(4px 4px 4px rgba(0, 161, 251, 0.15))
+        *
+          color: #fff
+
+    .power_item
+      text-align: center
+      height: 100%
+      padding: 40px
+      @media (max-width: 1200px)
+        padding: 30px
+      @media (max-width: 767px)
+        padding: 20px
+      @media (max-width: 575px)
+        padding: 15px
+      @media (min-width: 1201px)
+        min-height: 363px
+      picture
+        display: inline-block
+        min-height: 70px
+        margin-bottom: 10px
+      .power_item_title
+        font-size: 24px
+        line-height: 28px
+        font-family: $f_700
+        margin-bottom: 10px
+      .power_item_desc
+        font-size: 15px
+        line-height: 22px
+
+
+
+.bg_grey
+  background: $grey
+
+.plans_list
+  .row
+    margin-bottom: 30px
+    &:nth-child(even)
+      .column
+        .title, .h2, h2
+          color: $blue
+        .btn_default
+          background: $blue
+          border: 2px solid $blue
+          color: #fff
+          +box-shadow(2px 2px 4px rgba(0, 151, 235, 0.35))
+          &:hover, &:focus
+            background: $yellow
+            border: 2px solid $yellow
+            color: $black
+            +box-shadow(2px 2px 4px rgba(242, 188, 34, 0.35))
+
+        @media (min-width: 992px)
+          &:nth-child(1)
+            order: 2
+          &:nth-child(2)
+            order: 1
+    .column
+      width: 50%
+      padding-left: 15px
+      padding-right: 15px
+      @media (max-width: 991px)
+        width: 100%
+
+      .bg_grey
+        height: 100%
+        padding: 30px 100px
+        +flex
+        +ai-center
+        +j-center
+        @media (max-width: 1400px)
+          padding: 30px 60px
+        @media (max-width: 1200px)
+          padding:  30px 50px
+        @media (max-width: 991px)
+          padding: 20px
+          width: 100%
+          text-align: center
+        @media (max-width: 575px)
+          padding: 15px
+
+      .title, .h2, h2
+        margin-bottom: 20px
+        color: $yellow
+      .desc
+        margin-bottom: 55px
+        @media (max-width: 1200px)
+          margin-bottom: 30px
+        @media (max-width: 767px)
+          margin-bottom: 20px
+
+      .btn_default
+        @media (max-width: 991px)
+          margin: auto
+      .plan_img
+        background-position: center
+        background-size: cover
+        height: 570px
+        width: 100%
+        @media (max-width: 1200px)
+          height: 500px
+        @media (max-width: 991px)
+          height: 400px
+        @media (max-width: 767px)
+          height: 300px
+        @media (max-width: 575px)
+          height: 250px
+        @media (max-width: 375px)
+          height: 200px
+
+
+
+.seo_text
+  padding-bottom: 70px
+  @media (max-width: 1200px)
+    padding-bottom: 50px
+  @media (max-width: 991px)
+    padding-bottom: 30px
+
+
+
+.feedback_box
+  background-size: cover
+  background-position: center
+  position: relative
+  padding: 90px 0 220px
+  @media (max-width: 1200px)
+    padding: 70px 0 150px
+  @media (max-width: 991px)
+    padding: 50px 0 100px
+  @media (max-width: 767px)
+    padding: 30px 0 50px
+  .row
+    .column
+      padding-left: 15px
+      padding-right: 15px
+      &:nth-child(1)
+        width: 65.5%
+        +flex
+        +j-end
+        padding-right: 8.5%
+        @media (max-width: 991px)
+          width: 100%
+          padding-right: 0
+          +j-start
+      &:nth-child(2)
+        width: 34.5%
+        @media (max-width: 991px)
+          width: 100%
+
+      .h1, h2, .h2
+        color: $yellow
+
+        margin-bottom: 22px
+        @media (min-width: 1201px)
+          font-size: 62px
+          line-height: 68px
+
+
+      .text
+        max-width: 470px
+
+      .sub_title
+        color: #fff
+        font-size: 20px
+        line-height: 24px
+        text-align: left
+        @media (max-width: 1200px)
+          font-size: 18px
+          line-height: 1.2
+        @media (max-width: 991px)
+          font-size: 16px
+
+
+
+.feedback_form
+  input, textarea
+    max-width: 270px
+    @media (max-width: 991px)
+      max-width: 100%
+.field
+  margin-bottom: 10px
+
+.mb_30
+  margin-bottom: 30px
+.mb_20
+  margin-bottom: 20px
+textarea.form_control
+  height: 100px
+input.form_control
+  height: 48px
+.form_control
+  background: none
+  border: 0
+  border-bottom: 1px solid #fff
+  color: #fff
+  font-family: $f_400
+  width: 100%
+  padding-left: 5px
+  &::-webkit-input-placeholder
+    font-size: 15px
+    color: rgba(255, 255, 255, 0.6)
+    font-family: $f_400
+
+  &::-moz-placeholder
+    font-size: 15px
+    color: rgba(255, 255, 255, 0.6)
+    font-family: $f_400
+  &::-ms-input-placeholder
+    font-size: 15px
+    color: rgba(255, 255, 255, 0.6)
+    font-family: $f_400
+  &:-moz-placeholder
+    font-size: 15px
+    color: rgba(255, 255, 255, 0.6)
+    font-family: $f_400
+  &:-ms-input-placeholder
+    font-size: 15px
+    color: rgba(255, 255, 255, 0.6)
+    font-family: $f_400
+
+
+.custom_checkbox
+  position: relative
+  margin-bottom: 16px
+  input
+    position: absolute
+    opacity: 0
+    &:checked
+      + label
+        &:after
+          opacity: 1
+    + label
+      color: #fff
+      font-size: 15px
+      position: relative
+      font-family: $f_400
+      padding-left: 28px
+      display: inline-block
+      &:before
+        +b_a
+        left: 0
+        top: 0
+        bottom: 0
+        margin: auto
+        width: 20px
+        height: 20px
+        background: #fff
+
+      &:after
+        +b_a
+        left: 5px
+        top: 0
+        bottom: 0
+        margin: auto
+        background: $black
+        width: 10px
+        height: 10px
+        opacity: 0
+
+
+
+footer
+  padding: 22px 0
+.f_row
+  +flex
+  +j-beetween
+  +ai-center
+  +wrap
+  .f_left
+    +flex
+    +ai-center
+    +wrap
+    @media (max-width: 991px)
+      width: 100%
+      margin-bottom: 20px
+    .logo
+      margin-right: 48px
+      @media (max-width: 1200px)
+        margin-right: 25px
+      @media (max-width: 767px)
+        margin-bottom: 20px
+  .f_menu
+    +flex
+    +ai-center
+    +wrap
+    @media (max-width: 767px)
+      width: 100%
+    li
+      @media (max-width: 767px)
+        width: 100%
+      a
+        display: inline-block
+        padding: 10px 22px
+        color: $black
+        font-size: 14px
+        @media (max-width: 1200px)
+          padding: 5px 10px
+        @media (max-width: 767px)
+          padding: 5px 0
+
+
+        &:hover, &:focus
+          color: $blue
+          text-decoration: underline
+
+  .social_menu
+    +flex
+    +ai-center
+    +j-end
+    @media (max-width: 1200px)
+      margin-bottom: 20px
+    li
+      + li
+        margin-left: 15px
+
+      a
+        display: inline-block
+        &:hover, &:focus
+          svg
+            *
+              fill: $blue
+
+.copyright
+  text-align: right
+  @media (max-width: 1200px)
+    text-align: left
+  *
+    font-size: 12px
+  p
+    margin: 0
