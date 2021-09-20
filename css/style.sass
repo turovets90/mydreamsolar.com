@@ -542,14 +542,41 @@ header
 
   @media (min-width: 992px)
     display: none
-
+.pb_0
+  padding-bottom: 0 !important
+.pb_60
+  padding-bottom: 60px
+  @media (max-width: 1200px)
+    padding-bottom: 40px
+  @media (max-width: 991px)
+    padding-bottom: 30px
+  @media (max-width: 767px)
+    padding-bottom: 20px
 
 main
   padding-top: 22px
+  &.page_content
+    + footer
+      border-top: 2px solid $blue
+    @media (max-width: 991px)
+      padding-top: 0
+    .first_screen
+      .row
+        .col_img
+          @media (min-width: 1201px)
+            height: 570px
 
+        .col_text
+          .desc
+            @media (min-width: 1201px)
+              margin-bottom: 60px
+        .btn_default
+          @media (max-width: 991px)
+            margin: auto
 
 .first_screen
   .row
+    margin: 0
     +flex
     +wrap
     .col_img
@@ -662,6 +689,28 @@ main
       background: $blue
       color: #fff
 
+  &.blue
+    +box-shadow(2px 2px 4px rgba(0, 151, 235, 0.35))
+    background: $blue
+    color: #fff
+    border: 2px solid $blue
+    &:hover, &:focus
+      background: $yellow
+      border: 2px solid $yellow
+      +box-shadow(2px 2px 4px rgba(242, 188, 34, 0.35))
+      color: $black
+
+  &.b_black
+    border: 2px solid $black
+    &:hover, &:focus
+      +box-shadow(2px 2px 4px rgba(0, 151, 235, 0.35))
+      background: $blue
+      color: #fff
+      border: 2px solid $blue
+
+
+
+
 
 
 
@@ -743,6 +792,49 @@ main
   background: $grey
 
 .plans_list
+  &.blue_first
+    .row
+      &:nth-child(even)
+        .column
+          @media (max-width: 991px)
+            &:nth-child(1)
+              order: 2
+            &:nth-child(2)
+              order: 1
+          .title, .h2, h2
+            color: $yellow
+          .btn_default
+            background: $yellow
+            border: 2px solid $yellow
+            color: #fff
+            +box-shadow(2px 2px 4px rgba(242, 188, 34, 0.35))
+            &:hover, &:focus
+              background: $blue
+              border: 2px solid $blue
+              color: #fff
+              +box-shadow(2px 2px 4px rgba(0, 151, 235, 0.35))
+
+
+      &:nth-child(odd)
+        .column
+          @media (max-width: 991px)
+            &:nth-child(1)
+              order: 2
+            &:nth-child(2)
+              order: 1
+          .title, .h2, h2
+            color: $blue
+          .btn_default
+            background: $blue
+            border: 2px solid $blue
+            color: #fff
+            +box-shadow(2px 2px 4px rgba(0, 151, 235, 0.35))
+            &:hover, &:focus
+              background: $yellow
+              border: 2px solid $yellow
+              color: $black
+              +box-shadow(2px 2px 4px rgba(242, 188, 34, 0.35))
+
   .row
     margin-bottom: 30px
     &:nth-child(even)
@@ -822,12 +914,14 @@ main
 
 .seo_text
   padding-bottom: 70px
+  text-align: center
   @media (max-width: 1200px)
     padding-bottom: 50px
   @media (max-width: 991px)
     padding-bottom: 30px
 
-
+p
+  margin-bottom: 20px
 
 .feedback_box
   background-size: cover
@@ -1039,3 +1133,195 @@ footer
     font-size: 12px
   p
     margin: 0
+
+
+.first_screen
+  position: relative
+.breadcrumb_container
+  @media (min-width: 992px)
+    position: absolute
+    top: 30px
+    left: 0
+    right: 0
+  @media (max-width: 991px)
+    padding: 10px
+  margin: auto
+  .breadcrumb
+    +flex
+    +ai-center
+    +wrap
+    li
+      position: relative
+      padding: 0 13px
+      &:first-child
+        padding-left: 0
+      + li
+        &:before
+          content: '/'
+          position: absolute
+          left: -2px
+          top: 0
+          bottom: 0
+          margin: auto
+          font-family: $f_300
+      a
+        display: inline-block
+        color: $black
+        font-size: 15px
+        font-family: $f_300
+
+
+
+.faq_list
+  .faq_list_item
+    margin-bottom: 15px
+    &.act
+      .faq_list_item_head
+        background: $yellow
+        +box-shadow(4px 4px 4px #FFCC3D)
+        .text
+          color: $black
+        .icon
+          &:after
+            opacity: 0
+          &:before
+            background: $yellow
+    .faq_list_item_head
+      background: $blue
+      +box-shadow(4px 4px 4px rgba(0, 161, 251, 0.15))
+      +border-radius(40px)
+      height: 66px
+      +flex
+      +ai-center
+      padding: 2px 5px 2px 2px
+      @media (max-width: 1200px)
+        height: 56px
+      @media (max-width: 767px)
+        height: 46px
+      .text
+        color: #fff
+        font-size: 17px
+        font-family: $f_700
+        @media (max-width: 1200px)
+          font-size: 16px
+        @media (max-width: 991px)
+          font-size: 15px
+          line-height: 1.2
+        @media (max-width: 767px)
+          font-size: 14px
+        @media (max-width: 575px)
+          font-size: 13px
+      .icon
+        display: inline-block
+        width: 62px
+        min-width: 62px
+        height: 62px
+        position: relative
+        background: #fff
+        +border-radius(50%)
+        cursor: pointer
+        margin-right: 35px
+        @media (max-width: 1200px)
+          height: 50px
+          width: 50px
+          min-width: 50px
+          margin-right: 20px
+        @media (max-width: 767px)
+          width: 40px
+          min-width: 40px
+          height: 40px
+          margin-right: 10px
+
+        &:before, &:after
+          +b_a
+          +m_a
+          width: 24px
+          height: 3px
+          +border-radius(3px)
+          background: $blue
+          @media (max-width: 767px)
+            height: 2px
+            width: 20px
+        &:after
+          +transform(rotate(90deg))
+
+
+    .faq_list_item_body
+      display: none
+      padding-left: 100px
+      @media (max-width: 1200px)
+        padding-left: 70px
+      @media (max-width: 767px)
+        padding-left: 52px
+        font-size: 14px
+
+
+.blog
+  padding-bottom: 45px
+.blog_list
+  +flex
+  +wrap
+  margin-left: -15px
+  padding-right: -15px
+  .blog_item
+    width: 33.33%
+    padding: 0 15px
+    margin-bottom: 30px
+    @media (max-width: 991px)
+      width: 50%
+      &:last-child
+        margin-bottom: 0
+    @media (max-width: 767px)
+      width: 100%
+      margin-bottom: 20px
+
+    .blog_item_img
+      display: inline-block
+      width: 100%
+      height: 363px
+      background-position: center
+      background-size: cover
+      position: relative
+      overflow: hidden
+      @media (max-width: 1200px)
+        height: 350px
+      @media (max-width: 991px)
+        height: 300px
+      &:hover, &:focus
+        .blog_item_content
+          +transform(translateY(0))
+          +flex
+          +ai-center
+      .blog_item_content
+        background: $yellow
+        position: absolute
+        width: 100%
+        height: 100%
+        top: 0
+        left: 0
+        text-align: center
+        padding: 10px 40px
+        +transition($transition_default)
+        +transform(translateY(78%))
+        +box-shadow(4px 4px 4px rgba(255, 223, 133, 0.35))
+
+        .btn_default
+          margin: auto
+          max-width: 170px
+        .excerpt
+          margin-bottom: 30px
+        .title
+          font-size: 24px
+          line-height: 28px
+          font-family: $f_700
+          margin-bottom: 12px
+          display: -webkit-box
+          -webkit-box-orient: vertical
+          overflow: hidden
+          text-overflow: ellipsis
+          white-space: normal
+          -webkit-line-clamp: 2
+          height: 56px
+          @media (max-width: 1200px)
+            font-size: 22px
+            line-height: 22px

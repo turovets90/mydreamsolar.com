@@ -49,6 +49,24 @@ $(document).ready(function(){
         $(this).parent().toggleClass('act');
     })
 
+    $('.faq_list_item').each(function(){
+        var faq_list_item_head=$(this).find('.faq_list_item_head');
+        var faq_list_item_body=$(this).find('.faq_list_item_body');
+        $(faq_list_item_head).click(function(){
+            $('.faq_list_item').removeClass('act');
+            $('.faq_list_item_body').slideUp();
+            if($(faq_list_item_body).is(':visible')){
+                $(faq_list_item_head).parent().removeClass('act');
+                $(faq_list_item_body).slideUp();
+            }else{
+                $(faq_list_item_head).parent().toggleClass('act');
+                $(faq_list_item_body).slideDown();
+            }
+
+        });
+    });
+
+
 /*
     $('.btn_group .item').each(function(){
         var toggler=$(this).find('button');
