@@ -1,0 +1,59 @@
+main.page_content
+    .first_screen
+        .container.breadcrumb_container
+            ul.breadcrumb
+                li
+                    a.home(href="#")
+                        <svg width="26" height="22" viewBox="0 0 26 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.3752 19.375H11.7918V16.7917H14.3752V19.375ZM16.9585 14.2083H9.2085V21.9583H16.9585V14.2083Z" fill="#FFCC3D"/>
+                        <path d="M22.1253 8.1375V1.29167H18.2503V4.65L13.0837 0L0.166992 11.625H4.04199L13.0837 3.47458L22.1253 11.625H26.0003L22.1253 8.1375Z" fill="#0097EB"/>
+                        </svg>
+
+                li
+                    a(href="#") #{page.title}
+
+        .row
+            .col_img(style="background-image:url(img/cost_of_solar.png)")
+            .col_text
+                div.text
+                    .title.large #{page.title}
+
+
+
+
+
+    .sm_container.seo_text.text_left
+        .desc
+            p Page not found. The requested page was not found or was moved to a different address.
+            ul.list
+                for m_item, index in main_menu
+                    li
+                        a(href="#")=m_item
+                        ul
+                            for s_item, index in sub_menu
+                                li
+                                    a(href="#")=s_item
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

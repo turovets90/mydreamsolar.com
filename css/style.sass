@@ -187,6 +187,8 @@ $f_900: 'Rubik Black'
 
 $roboto: 'Roboto', sans-serif
 
+
+
 $blue: #0097EB
 $yellow: #FFCC3D
 $grey: #F4F4F4
@@ -407,6 +409,10 @@ header
             font-family: $f_700
             background-size: cover
             background-position: center
+            &:hover, &:focus
+              //color: $blue
+              &:before
+                background: rgba(0, 0, 0, 0.7)
             span
               position: relative
 
@@ -417,6 +423,7 @@ header
               background: rgba(0, 0, 0, 0.3)
               top: 0
               left: 0
+              +transition($transition_default)
 
     > li
       padding: 14px
@@ -777,6 +784,8 @@ main
       .power_item
         background: $yellow
         +box-shadow(4px 4px 4px rgba(255, 223, 133, 0.35))
+
+
         *
           color: $black
     &:nth-child(2), &:nth-child(3)
@@ -790,6 +799,9 @@ main
       text-align: center
       height: 100%
       padding: 40px
+      +transition($transition_default)
+      &:hover
+        +transform(translateY(-5px))
       @media (max-width: 1200px)
         padding: 30px
       @media (max-width: 767px)
@@ -1466,3 +1478,73 @@ footer
   color: $blue
   font-size: 36px
   font-family: $f_700
+
+
+.notification
+  background: $blue
+  position: relative
+  padding: 30px 0
+  @media (max-width: 991px)
+    padding: 20px 0
+  .close
+    position: absolute
+    right: 20px
+    top: 20px
+    width: 16px
+    height: 16px
+    cursor: pointer
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M15.4221 1.98879C15.5148 1.89626 15.5883 1.78639 15.6385 1.66545C15.6886 1.54451 15.7145 1.41487 15.7146 1.28394C15.7147 1.153 15.689 1.02333 15.6389 0.90233C15.5889 0.781329 15.5155 0.671368 15.423 0.578725C15.3305 0.486082 15.2206 0.412571 15.0997 0.362389C14.9787 0.312207 14.8491 0.286338 14.7181 0.286257C14.5872 0.286177 14.4575 0.311887 14.3365 0.36192C14.2155 0.411953 14.1056 0.485329 14.0129 0.577858L7.99999 6.59079L1.98879 0.577858C1.80169 0.390757 1.54793 0.285645 1.28333 0.285645C1.01872 0.285645 0.76496 0.390757 0.577858 0.577858C0.390757 0.76496 0.285645 1.01872 0.285645 1.28333C0.285645 1.54793 0.390757 1.80169 0.577858 1.98879L6.59079 7.99999L0.577858 14.0112C0.485215 14.1038 0.411726 14.2138 0.361588 14.3349C0.31145 14.4559 0.285645 14.5856 0.285645 14.7167C0.285645 14.8477 0.31145 14.9774 0.361588 15.0985C0.411726 15.2195 0.485215 15.3295 0.577858 15.4221C0.76496 15.6092 1.01872 15.7143 1.28333 15.7143C1.41434 15.7143 1.54408 15.6885 1.66512 15.6384C1.78617 15.5883 1.89615 15.5148 1.98879 15.4221L7.99999 9.40919L14.0129 15.4221C14.2 15.609 14.4537 15.7139 14.7181 15.7137C14.9826 15.7136 15.2361 15.6084 15.423 15.4213C15.6099 15.2342 15.7148 14.9805 15.7146 14.716C15.7144 14.4516 15.6092 14.1981 15.4221 14.0112L9.40919 7.99999L15.4221 1.98879Z' fill='white'/%3e%3c/svg%3e ")
+    @media (max-width: 991px)
+      right: 5px
+      top: 5px
+
+
+  .notification_row
+    +flex
+    +ai-center
+    +j-center
+    +wrap
+    @media (max-width: 767px)
+      +col
+    img
+      margin-right: 45px
+      @media (max-width: 1200px)
+        margin-right: 30px
+      @media (max-width: 991px)
+        margin-right: 20px
+      @media (max-width: 767px)
+        margin-bottom: 10px
+        margin-right: 0
+    .text
+      color: #fff
+      font-size: 24px
+      font-family: $f_700
+      margin-right: 50px
+      @media (max-width: 1200px)
+        font-size: 22px
+        margin-right: 40px
+      @media (max-width: 991px)
+        font-size: 20px
+        margin-right: 30px
+      @media (max-width: 767px)
+        margin-bottom: 10px
+        margin-right: 0
+        text-align: center
+
+    .btn_default
+      &:hover, &:focus
+        background: #fff
+        color: $blue
+
+.text_left
+  text-align: left
+.list
+  li
+    margin-bottom: 5px
+    ul
+      padding-left: 15px
+    a
+      color: $black
+      &:hover, &:focus
+        text-decoration: underline
+        color: $blue
