@@ -4,6 +4,20 @@ $(document).ready(function(){
     $(window).resize(function(){
         var header_height = $('header').outerHeight();
         $('main').css({'margin-top': header_height+'px'});
+
+        $(window).scroll(function(){
+            if ($(this).scrollTop() > 300) {
+                $('.notification').addClass('show');
+            } else {
+                $('.notification').removeClass('show');
+            }
+        });
+
+        $('.notification .close').click(function(){
+            $('.notification').remove();
+        });
+
+
     });
     $(window).resize();
 

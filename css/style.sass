@@ -1482,8 +1482,16 @@ footer
 
 .notification
   background: $blue
-  position: relative
+  //position: relative
   padding: 30px 0
+  position: fixed
+  left: 0
+  bottom: 0
+  width: 100%
+  +transition($transition_default)
+  +transform(translateY(100%))
+  &.show
+    +transform(translateY(0))
   @media (max-width: 991px)
     padding: 20px 0
   .close
