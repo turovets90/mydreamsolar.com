@@ -317,20 +317,27 @@ header
 
 
 .logo
+  +flex
+  +ai-center
+  font-family: $Noto_Sans
+  font-weight: 500
+  letter-spacing: 0.05em
+  font-size: 20px
+  text-transform: uppercase
+  @media (max-width: 575px)
+    font-size: 18px
+  @media (max-width: 375px)
+    font-size: 16px
+    font-family: $Noto_Sans
   a
     +flex
     +ai-center
-    text-transform: uppercase
     text-decoration: none
-    font-family: $Noto_Sans
-    font-weight: 500
-    letter-spacing: 0.05em
-    font-size: 20px
-    @media (max-width: 575px)
-      font-size: 18px
-    @media (max-width: 375px)
-      font-size: 16px
-      font-family: $Noto_Sans
+    &:hover, &:focus
+      text-decoration: none
+
+
+
 
 
 
