@@ -569,6 +569,7 @@ header
 main
   padding-top: 22px
   &.page_content
+    padding-top: 0
     + footer
       border-top: 2px solid $blue
     @media (max-width: 991px)
@@ -1184,13 +1185,13 @@ footer
 .first_screen
   position: relative
 .breadcrumb_container
-  @media (min-width: 992px)
+  //@media (min-width: 992px)
     position: absolute
     top: 30px
     left: 0
     right: 0
   @media (max-width: 991px)
-    padding: 10px
+  padding: 10px
   margin: auto
   .breadcrumb
     +flex
