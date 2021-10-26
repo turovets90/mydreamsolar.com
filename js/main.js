@@ -8,8 +8,14 @@ $(document).ready(function(){
         $(window).scroll(function(){
             if ($(this).scrollTop() > 300) {
                 $('.notification').addClass('show');
+                $('body').css({
+                    'padding-bottom':'70px'
+                });
             } else {
                 $('.notification').removeClass('show');
+                $('body').css({
+                    'padding-bottom':'0'
+                });
             }
         });
 
